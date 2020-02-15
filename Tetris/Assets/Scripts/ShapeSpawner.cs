@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 namespace Tetris
 {
-	class ShapeSpawner : IShapeSpawner
+	class ShapeSpawner :MonoBehaviour, IShapeSpawner
 	{
+		public GameObject SpawnShape(GameObject ShapePrefab)
+		{
+			return Instantiate(ShapePrefab, gameObject.transform.position, Quaternion.identity);
+		}
 	}
 }

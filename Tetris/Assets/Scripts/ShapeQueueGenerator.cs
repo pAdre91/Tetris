@@ -22,7 +22,7 @@ namespace Tetris
 
 		private void FindAllAssets()
 		{
-			m_shapePrefabs = Resources.LoadAll<GameObject>("ShapePrefabs");
+			m_shapePrefabs = Resources.LoadAll<GameObject>("Shape");
 		}
 
 		private void InitQueue(int countShapes)

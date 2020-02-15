@@ -15,7 +15,13 @@ namespace Tetris
 		public TetrisController()
 		{
 			m_shapeQueueGenerator = new ShapeQueueGenerator();
-			m_shapeSpawner = new ShapeSpawner();
+			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
+			Start();
+		}
+
+		public void Start()
+		{
+			m_shapeSpawner.SpawnShape(m_shapeQueueGenerator.GetNewShape());
 		}
 
 
