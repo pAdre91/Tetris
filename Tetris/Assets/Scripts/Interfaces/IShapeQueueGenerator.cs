@@ -1,4 +1,6 @@
-﻿interface IShapeQueueGenerator
+﻿using UnityEngine;
+
+interface IShapeQueueGenerator
 {
-	ShapeData GetNewShape();
+	GameObject GetNewShape();
 }

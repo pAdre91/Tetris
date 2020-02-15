@@ -15,6 +15,9 @@ namespace Tetris
 		public TetrisController()
 		{
 			m_shapeQueueGenerator = new ShapeQueueGenerator();
+			m_shapeSpawner = new ShapeSpawner();
 		}
+
+
 	}
 }

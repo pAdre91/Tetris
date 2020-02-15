@@ -6,8 +6,8 @@ namespace Tetris
 	class ShapeQueueGenerator : IShapeQueueGenerator
 	{
 		private const int			m_queueСapacity = 2;
-		private Queue<ShapeData>	m_shapesQueue = new Queue<ShapeData>();
-		private ShapeData[]			m_shapePrefabs;
+		private Queue<GameObject>	m_shapesQueue = new Queue<GameObject>();
+		private GameObject[]		m_shapePrefabs;
 
 		public ShapeQueueGenerator()
 		{
@@ -15,14 +15,14 @@ namespace Tetris
 			InitQueue(m_queueСapacity);
 		}
 
-		public ShapeData GetNewShape()
+		public GameObject GetNewShape()
 		{
 			return m_shapesQueue.Dequeue();
 		}
 
 		private void FindAllAssets()
 		{
-			m_shapePrefabs = Resources.LoadAll<ShapeData>("Shapes");
+			m_shapePrefabs = Resources.LoadAll<GameObject>("ShapePrefabs");
 		}
 
 		private void InitQueue(int countShapes)
