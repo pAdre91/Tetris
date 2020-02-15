@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class ShapePositionCoordinator : MonoBehaviour, IShapePositionCoordinator
 {
-	IShape m_currentShape;
-	IScaler m_scaler;
+	IShape		m_currentShape;
+	IScaler		m_scaler;
 }

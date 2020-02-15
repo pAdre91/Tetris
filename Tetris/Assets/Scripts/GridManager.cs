@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour, IGridManager
 {
-	IGridController m_gridController;
-	ILineChecker m_lineChecker;
-	ILineCollector m_lineCollector;
+	IGridController		m_gridController;
+	ILineChecker		m_lineChecker;
+	ILineCollector		m_lineCollector;
 }

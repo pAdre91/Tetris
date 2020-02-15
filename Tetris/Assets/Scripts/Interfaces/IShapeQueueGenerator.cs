@@ -1,4 +1,4 @@
 ﻿interface IShapeQueueGenerator
 {
-
+	ShapeData GetNewShape();
 }

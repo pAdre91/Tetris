@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Switcher : MonoBehaviour, ISwitcher
 {
-	ISpeeder m_speeder;
-	IScorer m_scorer;
+	ISpeeder	m_speeder;
+	IScorer		m_scorer;
 }
