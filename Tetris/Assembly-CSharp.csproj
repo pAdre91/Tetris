@@ -62,6 +62,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IGridController.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IGridManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILevelStater.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILineChecker.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILineCollector.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IScaler.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IScorer.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IShape.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IShapePositionCoordinatorcs.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IShapeQueueGenerator.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IShapeSpawner.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ISpeeder.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ISwitcher.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ITetrisController.cs" />
+    <Compile Include="Assets\Scripts\ShapePositionCoordinator.cs" />
+    <Compile Include="Assets\Scripts\Switcher.cs" />
     <Compile Include="Assets\Scripts\TetrisController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/kING/Documents/TestTask/Tetris/Tetris/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
