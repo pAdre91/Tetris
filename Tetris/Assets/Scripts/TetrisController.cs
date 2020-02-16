@@ -33,12 +33,10 @@ namespace Tetris
 			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);			//Не забыть умножать на Scale
 			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);            //Добавить проверку на неположительность? Что бы фигуры вверх не двигались
 
-			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))
-			{
-				m_shapePositionCoordinator.MoveShape(horizontalDirection*0.436f);
-			}
+			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))		//Разбить условия, это нечитаемо
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection*0.436f, 1);
 			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection) && verticalMove < 0)
-				m_shapePositionCoordinator.MoveShape(verticalDirection * 0.44f);
+				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);
 		}
 
 	}

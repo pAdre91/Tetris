@@ -3,6 +3,6 @@
 interface IShapePositionCoordinator
 {
 	IShape CurrentShape { set; get; }
-	//IShape GetMovedShape(Vector3 direction);
-	void MoveShape(Vector3 direction);
+	void HorizontalMoveShape(Vector3 direction, float speed);
+	void VerticalMoveShape(Vector3 direction, float speed);
 }
