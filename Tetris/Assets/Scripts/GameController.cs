@@ -13,4 +13,9 @@ public class GameController : MonoBehaviour
 	{
 		m_tetrisController = new TetrisController();
 	}
+
+	private void Update()
+	{
+		m_tetrisController.MoveShape(0, -1);			//Заглушка
+	}
 }

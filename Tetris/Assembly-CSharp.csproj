@@ -64,13 +64,13 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
+    <Compile Include="Assets\Scripts\GridModel.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGridController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGridManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelStater.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineChecker.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineCollector.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\IScaler.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScorer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShape.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShapePositionCoordinatorcs.cs" />
@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Interfaces\ISpeeder.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISwitcher.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITetrisController.cs" />
+    <Compile Include="Assets\Scripts\Shape.cs" />
     <Compile Include="Assets\Scripts\ShapePositionCoordinator.cs" />
     <Compile Include="Assets\Scripts\ShapeQueueGenerator.cs" />
     <Compile Include="Assets\Scripts\ShapeSpawner.cs" />

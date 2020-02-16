@@ -15,15 +15,31 @@ namespace Tetris
 		public TetrisController()
 		{
 			m_shapeQueueGenerator = new ShapeQueueGenerator();
+			m_shapePositionCoordinator = new ShapePositionCoordinator();
+			m_gridManager = new GridManager();
+
 			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
-			Start();
+			SpawnShape();
 		}
 
-		public void Start()
+		public void SpawnShape()
 		{
-			m_shapeSpawner.SpawnShape(m_shapeQueueGenerator.GetNewShape());
+			GameObject shapeFromQueue = m_shapeQueueGenerator.GetNewShape();
+			m_shapePositionCoordinator.CurrentShape = m_shapeSpawner.SpawnShape(shapeFromQueue).GetComponent<IShape>();
 		}
 
+		public void MoveShape(float horizontalMove, float verticalMove)
+		{
+			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);			//Не забыть умножать на Scale
+			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);            //Добавить проверку на неположительность? Что бы фигуры вверх не двигались
+
+			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))
+			{
+				m_shapePositionCoordinator.MoveShape(horizontalDirection*0.436f);
+			}
+			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection) && verticalMove < 0)
+				m_shapePositionCoordinator.MoveShape(verticalDirection * 0.44f);
+		}
 
 	}
 }
