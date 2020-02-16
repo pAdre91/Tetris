@@ -3,4 +3,5 @@
 interface IGridManager
 {
 	bool ValidateShapeMove(GameObject shape, Vector3 direction);
+	void AddShapeToGrid(GameObject shape);
 }

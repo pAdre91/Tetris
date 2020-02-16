@@ -32,14 +32,28 @@ namespace Tetris
 
 		public void MoveShape(float horizontalMove, float verticalMove)
 		{
-			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);			//Не забыть умножать на Scale
-			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);            //Добавить проверку на неположительность? Что бы фигуры вверх не двигались
+			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);
+			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);
 
-			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))		//Разбить условия, это нечитаемо
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection*0.436f, 1);
+			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))
+			{
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, 1);        //Магические числа
+			}
 			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection) && verticalMove < 0)
-				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);
+			{
+				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);     //Магические числа
+			}
+			else if (!m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection))
+			{
+				m_gridManager.AddShapeToGrid(m_shapePositionCoordinator.CurrentShape.ShapeGameObject);      //А это точно тут должно быть?
+				SpawnShape();																				//А это точно тут должно быть?
+			}
 		}
 
+		/*private IEnumerator FallShape()
+		{
+			MoveShape(Vector3.down.x, Vector3.down.y);
+			yield return new WaitForSeconds(1f);
+		}*/
 	}
 }

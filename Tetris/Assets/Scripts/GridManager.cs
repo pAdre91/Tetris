@@ -19,16 +19,29 @@ namespace Tetris
 		{
 			foreach (Transform children in shape.transform)
 			{
-				float childrenPositionX = (children.transform.position.x + (direction.x * m_scale))/ m_scale;
-				float childrenPositionY = (children.transform.position.y + (direction.y * m_scale))/ m_scale;
-
-				byte x = (byte)Math.Floor(childrenPositionX);
-				byte y = (byte)Math.Floor(childrenPositionY);
-
+				TranslateCoordinateToGridNumbers(children, out byte x, out byte y, direction);
 				if (!m_gridController.IsAreaFree(x, y))
 					return false;
 			}
 			return true;
+		}
+
+		public void AddShapeToGrid(GameObject shape)
+		{
+			foreach (Transform children in shape.transform)
+			{
+				TranslateCoordinateToGridNumbers(children, out byte x, out byte y, Vector3.zero);
+				m_gridController.SetArea(x, y, children);
+			}
+		}
+
+		private void TranslateCoordinateToGridNumbers(Transform gameObject, out byte x, out byte y, Vector3 direction)
+		{
+			float childrenPositionX = (gameObject.position.x + (direction.x * m_scale)) / m_scale;
+			float childrenPositionY = (gameObject.position.y + (direction.y * m_scale)) / m_scale;
+
+			x = (byte)Math.Floor(childrenPositionX);
+			y = (byte)Math.Floor(childrenPositionY);
 		}
 	}
 }
