@@ -28,7 +28,6 @@ namespace Tetris
 				if (!m_gridController.IsAreaFree(x, y))
 					return false;
 			}
-
 			return true;
 		}
 	}

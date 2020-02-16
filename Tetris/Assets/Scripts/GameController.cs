@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Tetris;
+using GameControl;
 
 public class GameController : MonoBehaviour
 {
@@ -12,10 +13,11 @@ public class GameController : MonoBehaviour
 	private void Start()
 	{
 		m_tetrisController = new TetrisController();
+		m_inputManager = new InputManager();
 	}
 
 	private void Update()
 	{
-		m_tetrisController.MoveShape(0, -1);			//Заглушка
+		m_tetrisController.MoveShape(m_inputManager.GetHorizontalMove(), m_inputManager.GetVerticalMove());
 	}
 }
