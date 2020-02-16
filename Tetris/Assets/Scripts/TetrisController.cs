@@ -25,6 +25,8 @@ namespace Tetris
 		public void SpawnShape()
 		{
 			GameObject shapeFromQueue = m_shapeQueueGenerator.GetNewShape();
+			m_shapeQueueGenerator.AddRandomShapeData();
+
 			m_shapePositionCoordinator.CurrentShape = m_shapeSpawner.SpawnShape(shapeFromQueue).GetComponent<IShape>();
 		}
 

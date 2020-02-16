@@ -31,7 +31,7 @@ namespace Tetris
 				AddRandomShapeData();
 		}
 
-		private void AddRandomShapeData()
+		public void AddRandomShapeData()
 		{
 			m_shapesQueue.Enqueue(m_shapePrefabs[Random.Range(0, m_shapePrefabs.Length)]);
 		}
