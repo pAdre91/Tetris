@@ -46,6 +46,7 @@ namespace Tetris
 			else if (!m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection))
 			{
 				m_gridManager.AddShapeToGrid(m_shapePositionCoordinator.CurrentShape.ShapeGameObject);      //А это точно тут должно быть?
+				m_gridManager.RemoveFilledLines();
 				SpawnNewShape();																				//А это точно тут должно быть?
 			}
 		}

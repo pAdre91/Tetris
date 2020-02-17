@@ -4,14 +4,17 @@ namespace Tetris
 {
 	class GridModel : IGridModel
 	{
-		private Transform[,] m_grid;
+		public Transform[,] PlayFieldGrid { get; private set; }
+
 		private byte m_width;
 		private byte m_height;
+		private IDestroyer m_destroyer;
 
 		private GridModel() { }			//Может есть другой способ?
 		public	GridModel(byte width, byte height)
 		{
-			m_grid = new Transform[width, height];
+			PlayFieldGrid = new Transform[width, height];
+			m_destroyer = GameObject.FindGameObjectWithTag("ScriptsObject").GetComponent<Destroyer>();
 			m_width = width;
 			m_height = height;
 		}
@@ -21,14 +24,20 @@ namespace Tetris
 			if (x >= m_width || y >= m_height)
 				return false;
 
-			if (m_grid[x, y] != null)
+			if (PlayFieldGrid[x, y] != null)
 				return false;
 			return true;
 		}
 
 		public void SetArea(byte x, byte y, Transform newObject)
 		{
-			m_grid[x, y] = newObject;
+			PlayFieldGrid[x, y] = newObject;			//Проверка и логи
+		}
+
+		public void RemoveArea(byte x, byte y)
+		{
+			m_destroyer.RemoveObject(PlayFieldGrid[x, y].gameObject);
+			PlayFieldGrid[x, y] = null;				//Проверка и логи
 		}
 	}
 }

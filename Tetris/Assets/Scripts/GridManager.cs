@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
-namespace Tetris
+namespace Tetris		//Grid?
 {
 	public class GridManager : IGridManager
 	{
 		private float m_scale = 0.436f;             //Тут ли его хранить? //Убрать хардкод!
 
-		IGridModel m_gridController;
+		IGridModel m_gridModel;
 		ILineChecker m_lineChecker;
-		ILineCollector m_lineCollector;
 
 		public GridManager()
 		{
-			m_gridController = new GridModel(10,20);			//Убрать хардкод!
+			m_gridModel = new GridModel(10,20);         //Убрать хардкод!
+			m_lineChecker = new LineChecker();
 		}
 
 		public bool ValidateShapeMove(GameObject shape, Vector3 direction)
@@ -20,7 +21,7 @@ namespace Tetris
 			foreach (Transform children in shape.transform)
 			{
 				TranslateCoordinateToGridNumbers(children.position, out byte x, out byte y, direction);
-				if (!m_gridController.IsAreaFree(x, y))
+				if (!m_gridModel.IsAreaFree(x, y))
 					return false;
 			}
 			return true;
@@ -35,7 +36,7 @@ namespace Tetris
 
 				TranslateCoordinateToGridNumbers(rotatedChildrenToWorldPoint, out byte x, out byte y, Vector3.zero);
 
-				if(!m_gridController.IsAreaFree(x,y))
+				if(!m_gridModel.IsAreaFree(x,y))
 					return false;
 			}
 			return true;
@@ -45,8 +46,24 @@ namespace Tetris
 		{
 			foreach (Transform children in shape.transform)
 			{
-				TranslateCoordinateToGridNumbers(children.position, out byte x, out byte y, Vector3.zero);		//Проверка и логи
-				m_gridController.SetArea(x, y, children);
+				TranslateCoordinateToGridNumbers(children.position, out byte x, out byte y, Vector3.zero);
+				m_gridModel.SetArea(x, y, children);
+			}
+		}
+
+		public void RemoveFilledLines()
+		{
+			Stack<byte> filledLines = m_lineChecker.GetNumbersFilledLines(m_gridModel.PlayFieldGrid);
+			int gridWidth = m_gridModel.PlayFieldGrid.GetLength(0);
+			int gridHeight = m_gridModel.PlayFieldGrid.GetLength(1);
+
+			if (filledLines.Count <= 0)
+				return;
+
+			foreach (byte numberLine in filledLines)
+			{
+				for (byte j = 0; j < gridWidth; j++)
+					m_gridModel.RemoveArea(j, numberLine);
 			}
 		}
 

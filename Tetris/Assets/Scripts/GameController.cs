@@ -21,6 +21,5 @@ public class GameController : MonoBehaviour
 		m_tetrisController.MoveShape(m_inputManager.GetHorizontalMove(), m_inputManager.GetVerticalMove());
 		if (m_inputManager.GetRotate())
 			m_tetrisController.Rotate(90);
-
 	}
 }
