@@ -5,8 +5,15 @@ namespace Tetris
 	class Shape : MonoBehaviour, IShape
 	{
 		[SerializeField]
-		private Vector3 RotationPoint;
+		private Vector3 m_rotationPoint;
 
+		public Vector3 RotationPoint
+		{
+			get
+			{
+				return m_rotationPoint;
+			}
+		}
 		public GameObject ShapeGameObject
 		{
 			get
@@ -22,7 +29,7 @@ namespace Tetris
 
 		public void Rotate(int angle)			//точно ли нужен угол?
 		{
-			transform.RotateAround(transform.TransformPoint(RotationPoint), new Vector3(0, 0, 1), angle);
+			transform.RotateAround(transform.TransformPoint(m_rotationPoint), new Vector3(0, 0, 1), angle);
 		}
 	}
 }

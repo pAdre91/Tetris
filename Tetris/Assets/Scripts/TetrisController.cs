@@ -19,10 +19,10 @@ namespace Tetris
 			m_gridManager = new GridManager();
 
 			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
-			SpawnShape();
+			SpawnNewShape();
 		}
 
-		public void SpawnShape()
+		public void SpawnNewShape()
 		{
 			GameObject shapeFromQueue = m_shapeQueueGenerator.GetNewShape();
 			m_shapeQueueGenerator.AddRandomShapeData();
@@ -46,7 +46,15 @@ namespace Tetris
 			else if (!m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection))
 			{
 				m_gridManager.AddShapeToGrid(m_shapePositionCoordinator.CurrentShape.ShapeGameObject);      //А это точно тут должно быть?
-				SpawnShape();																				//А это точно тут должно быть?
+				SpawnNewShape();																				//А это точно тут должно быть?
+			}
+		}
+
+		public void Rotate(int angle)
+		{
+			if (m_gridManager.ValidateShapeRotate(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, m_shapePositionCoordinator.CurrentShape.RotationPoint, angle))
+			{
+				m_shapePositionCoordinator.RotateShape(angle);
 			}
 		}
 

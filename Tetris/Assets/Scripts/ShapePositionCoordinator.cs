@@ -25,4 +25,9 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 		previousVerticalTime = Time.time;
 		CurrentShape.Move(direction);
 	}
+
+	public void RotateShape(int angle)
+	{
+		CurrentShape.Rotate(angle);
+	}
 }
