@@ -64,6 +64,19 @@ namespace Tetris		//Grid?
 			{
 				for (byte j = 0; j < gridWidth; j++)
 					m_gridModel.RemoveArea(j, numberLine);
+				RowDown(numberLine, gridWidth, gridHeight);
+			}
+		}
+
+		private void RowDown(byte startNumberLine, int gridWidth, int gridHeight)
+		{
+			for (byte rowLine = startNumberLine; rowLine < gridHeight; rowLine++)
+			{
+				for (byte rowColumn = 0; rowColumn < gridWidth; rowColumn++)
+				{
+					if (!m_gridModel.IsAreaFree(rowColumn, rowLine))
+						m_gridModel.ReplaceAreaFromGrid(rowColumn, rowLine, rowColumn, rowLine - 1, Vector3.down * m_scale);
+				}
 			}
 		}
 

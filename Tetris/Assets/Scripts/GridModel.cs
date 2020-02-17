@@ -39,5 +39,12 @@ namespace Tetris
 			m_destroyer.RemoveObject(PlayFieldGrid[x, y].gameObject);
 			PlayFieldGrid[x, y] = null;				//Проверка и логи
 		}
+
+		public void ReplaceAreaFromGrid(int startX, int startY, int endX, int endY, Vector3 derection)
+		{
+			PlayFieldGrid[endX, endY] = PlayFieldGrid[startX, startY];
+			PlayFieldGrid[endX, endY].position += derection;
+			PlayFieldGrid[startX, startY] = null;
+		}
 	}
 }

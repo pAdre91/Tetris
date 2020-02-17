@@ -30,9 +30,6 @@ public class GameController : MonoBehaviour
 		if (m_inputManager.GetUpButton("Vertical"))
 			StartCoroutine(FallShape());
 
-		/*Старт корутины производить, когда кнопка вниз не нажата*/
-		/*Как только кнопку вниз нажали, останавливать корутину*/
-
 		/*Зделать чтение на кнопки + и - менять скорость через тетрис контроллер*/
 	}
 
