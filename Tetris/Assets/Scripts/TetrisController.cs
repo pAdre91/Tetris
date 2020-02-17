@@ -34,18 +34,19 @@ namespace Tetris
 		{
 			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);
 			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);
+			GameObject shapeGO = m_shapePositionCoordinator.CurrentShape.ShapeGameObject;
 
-			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, horizontalDirection))
+			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
 			{
 				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, 1);        //Магические числа
 			}
-			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection) && verticalMove < 0)
+			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && verticalMove < 0)
 			{
 				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);     //Магические числа
-			}
-			else if (!m_gridManager.ValidateShapeMove(m_shapePositionCoordinator.CurrentShape.ShapeGameObject, verticalDirection))
+			}	/*Если фигура может упасть, так как КД падения прошел, но под ней что-то есть*/
+			else if (!m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && m_shapePositionCoordinator.IsShapeCanFallByTime(1))
 			{
-				m_gridManager.AddShapeToGrid(m_shapePositionCoordinator.CurrentShape.ShapeGameObject);      //А это точно тут должно быть?
+				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть?
 				m_gridManager.RemoveFilledLines();
 				SpawnNewShape();																				//А это точно тут должно быть?
 			}

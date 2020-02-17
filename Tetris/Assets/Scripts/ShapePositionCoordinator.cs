@@ -20,7 +20,7 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 
 	public void VerticalMoveShape(Vector3 direction, float speed)
 	{
-		if (Time.time - previousVerticalTime < 0.2 / speed)			//Магические числа!
+		if (!IsShapeCanFallByTime(speed))
 			return;
 		previousVerticalTime = Time.time;
 		CurrentShape.Move(direction);
@@ -29,5 +29,12 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 	public void RotateShape(int angle)
 	{
 		CurrentShape.Rotate(angle);
+	}
+
+	public bool IsShapeCanFallByTime(float speed)
+	{
+		if (Time.time - previousVerticalTime < 0.2 / speed)         //Магические числа!
+			return false;
+		return true;
 	}
 }
