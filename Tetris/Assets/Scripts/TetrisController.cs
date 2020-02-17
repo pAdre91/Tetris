@@ -59,6 +59,11 @@ namespace Tetris
 			}
 		}
 
+		public float GetFallTime()
+		{
+			return 1f;				//Заглушка
+		}
+
 		/*private IEnumerator FallShape()
 		{
 			MoveShape(Vector3.down.x, Vector3.down.y);

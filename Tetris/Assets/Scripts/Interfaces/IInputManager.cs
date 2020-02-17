@@ -2,5 +2,6 @@
 {
 	float GetVerticalMove();
 	float GetHorizontalMove();
-	bool GetRotate();
+	bool GetDownButton(string buttonName);
+	bool GetUpButton(string buttonName);
 }

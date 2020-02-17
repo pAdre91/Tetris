@@ -14,9 +14,14 @@ namespace GameControl
 			return Input.GetAxisRaw("Horizontal");
 		}
 
-		public bool GetRotate()
+		public bool GetDownButton(string buttonName)
 		{
-			return Input.GetButtonDown("Rotate");
+			return Input.GetButtonDown(buttonName);
+		}
+
+		public bool GetUpButton(string buttonName)
+		{
+			return Input.GetButtonUp(buttonName);
 		}
 	}
 }
