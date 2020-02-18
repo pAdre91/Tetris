@@ -13,13 +13,14 @@ enum PointsForFiledLines
 
 public class Switcher : ISwitcher
 {
-	ISpeeder m_speeder;
-	IScorer m_scorer;
+	private ISpeeder m_speeder;
+	private IScorer m_scorer;
+	private int m_oldStageScore = 100;
 
 	public Switcher()
 	{
 		m_scorer = new Scorer();
-
+		m_speeder = new Speeder();
 	}
 
 	public void EarnPoints(int filledLineCount)
@@ -31,5 +32,19 @@ public class Switcher : ISwitcher
 			case 3: m_scorer.AddNewPoints((int)PointsForFiledLines.ThreeLines); break;
 			case 4: m_scorer.AddNewPoints((int)PointsForFiledLines.FourLines); break;
 		}
+	}
+
+	public void SwitchSpeed()
+	{
+		if (m_scorer.Score < m_oldStageScore * 2)
+			return;
+
+		m_oldStageScore *= 2;
+		m_speeder.IncrementSpeed();
+	}
+
+	public int GetSpeed()
+	{
+		return m_speeder.Speed;
 	}
 }

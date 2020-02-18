@@ -50,8 +50,12 @@ namespace Tetris
 				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть? Может вынести как-нибудь в ГеймКонтроллер?
 				int countFieldLines = m_gridManager.RemoveFilledLines();
 
-				if (countFieldLines != 0)
+				if (countFieldLines != 0)                   //Убрать
+				{
 					m_switcher.EarnPoints(countFieldLines);
+					m_switcher.SwitchSpeed();
+				}
+
 
 				SpawnNewShape();                                                                                //А это точно тут должно быть?
 			}
@@ -67,7 +71,7 @@ namespace Tetris
 
 		public float GetFallTime()
 		{
-			return 1f;              //Заглушка
+			return 1/m_switcher.GetSpeed();              //Заглушка
 		}
 	}
 }

@@ -4,8 +4,9 @@ namespace Tetris
 {
 	class Scorer : IScorer
 	{
-		private int m_score = 0;
 		private IScoreView m_scoreView;
+
+		public int Score { get; private set; } = 0;
 
 		public Scorer()
 		{
@@ -14,8 +15,8 @@ namespace Tetris
 
 		public void AddNewPoints(int newPoints)
 		{
-			m_score += newPoints;
-			m_scoreView.RefreshScoreView(m_score);
+			Score += newPoints;
+			m_scoreView.RefreshScoreView(Score);
 		}
 	}
 }
