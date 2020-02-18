@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Auxiliary\Destroyer.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ShapeQueueController.cs" />
     <Compile Include="Assets\Scripts\Controllers\Switcher.cs" />
     <Compile Include="Assets\Scripts\Controllers\TetrisController.cs" />
     <Compile Include="Assets\Scripts\GridModel.cs" />
@@ -78,10 +79,12 @@
     <Compile Include="Assets\Scripts\Interfaces\ILineChecker.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineScorer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineView.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\INextShapeView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScoreView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScorer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShape.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShapePositionCoordinatorcs.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IShapeQueueController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShapeQueueGenerator.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShapeSpawner.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISpeedView.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Assets\Scripts\Speeder.cs" />
     <Compile Include="Assets\Scripts\UI\GameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\LineView.cs" />
+    <Compile Include="Assets\Scripts\UI\NextShapeView.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreView.cs" />
     <Compile Include="Assets\Scripts\UI\SpeedView.cs" />
     <Reference Include="Unity.Timeline.Editor">

@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
 		m_inputManager = new InputManager();
 		m_levelStater = new LevelStater();
 
+		m_tetrisController.SpawnNewShape();
 		StartCoroutine(FallShape());
 	}
 

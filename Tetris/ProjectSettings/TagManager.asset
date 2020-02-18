@@ -9,6 +9,8 @@ TagManager:
   - Score
   - Speed
   - Line
+  - GameOver
+  - ShapeView
   layers:
   - Default
   - TransparentFX

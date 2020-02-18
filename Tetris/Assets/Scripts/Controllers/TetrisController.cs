@@ -6,7 +6,7 @@ namespace Tetris
 {
 	public class TetrisController : ITetrisController
 	{
-		private IShapeQueueGenerator m_shapeQueueGenerator;
+		private IShapeQueueController m_shapeQueueController;
 		private IShapeSpawner m_shapeSpawner;
 		private IShapePositionCoordinator m_shapePositionCoordinator;
 		private IGridManager m_gridManager;
@@ -14,19 +14,18 @@ namespace Tetris
 
 		public TetrisController()
 		{
-			m_shapeQueueGenerator = new ShapeQueueGenerator();
+			m_shapeQueueController = new ShapeQueueController();
 			m_shapePositionCoordinator = new ShapePositionCoordinator();
 			m_gridManager = new GridManager();
 			m_switcher = new Switcher();
 
 			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
-			SpawnNewShape();
 		}
 
 		public void SpawnNewShape()
 		{
-			GameObject shapeFromQueue = m_shapeQueueGenerator.GetNewShape();
-			m_shapeQueueGenerator.AddRandomShapeData();
+			GameObject shapeFromQueue = m_shapeQueueController.GetNewShape();
+			m_shapeQueueController.AddRandomShape();
 
 			m_shapePositionCoordinator.CurrentShape = m_shapeSpawner.SpawnShape(shapeFromQueue).GetComponent<IShape>();
 		}
