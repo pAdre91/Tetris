@@ -63,8 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Auxiliary\Destroyer.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\GridManager.cs" />
+    <Compile Include="Assets\Scripts\Controllers\Switcher.cs" />
+    <Compile Include="Assets\Scripts\Controllers\TetrisController.cs" />
     <Compile Include="Assets\Scripts\GridModel.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDestroyer.cs" />
@@ -73,6 +75,7 @@
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelStater.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineChecker.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IScoreView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScorer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShape.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShapePositionCoordinatorcs.cs" />
@@ -82,12 +85,12 @@
     <Compile Include="Assets\Scripts\Interfaces\ISwitcher.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITetrisController.cs" />
     <Compile Include="Assets\Scripts\LineChecker.cs" />
+    <Compile Include="Assets\Scripts\Scorer.cs" />
     <Compile Include="Assets\Scripts\Shape.cs" />
     <Compile Include="Assets\Scripts\ShapePositionCoordinator.cs" />
     <Compile Include="Assets\Scripts\ShapeQueueGenerator.cs" />
     <Compile Include="Assets\Scripts\ShapeSpawner.cs" />
-    <Compile Include="Assets\Scripts\Switcher.cs" />
-    <Compile Include="Assets\Scripts\TetrisController.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreView.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/kING/Documents/TestTask/Tetris/Tetris/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

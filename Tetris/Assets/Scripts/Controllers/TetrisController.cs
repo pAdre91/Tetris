@@ -6,17 +6,18 @@ namespace Tetris
 {
 	public class TetrisController : ITetrisController
 	{
-		private IShapeQueueGenerator		m_shapeQueueGenerator;
-		private IShapeSpawner				m_shapeSpawner;
-		private IShapePositionCoordinator	m_shapePositionCoordinator;
-		private IGridManager				m_gridManager;
-		private ISwitcher					m_switcher;
+		private IShapeQueueGenerator m_shapeQueueGenerator;
+		private IShapeSpawner m_shapeSpawner;
+		private IShapePositionCoordinator m_shapePositionCoordinator;
+		private IGridManager m_gridManager;
+		private ISwitcher m_switcher;
 
 		public TetrisController()
 		{
 			m_shapeQueueGenerator = new ShapeQueueGenerator();
 			m_shapePositionCoordinator = new ShapePositionCoordinator();
 			m_gridManager = new GridManager();
+			m_switcher = new Switcher();
 
 			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
 			SpawnNewShape();
@@ -30,7 +31,7 @@ namespace Tetris
 			m_shapePositionCoordinator.CurrentShape = m_shapeSpawner.SpawnShape(shapeFromQueue).GetComponent<IShape>();
 		}
 
-		public void MoveShape(float horizontalMove, float verticalMove)
+		public void MoveShape(float horizontalMove, float verticalMove)     //возвращаемый тип сделать bool и если вернется false, то проверять на наличие заполненных линий
 		{
 			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);
 			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);
@@ -43,12 +44,16 @@ namespace Tetris
 			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && verticalMove < 0)
 			{
 				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);     //Магические числа
-			}	/*Если фигура может упасть, так как КД падения прошел, но под ней что-то есть*/
+			}   /*Если фигура может упасть, так как КД падения прошел, но под ней что-то есть*/
 			else if (!m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && m_shapePositionCoordinator.IsShapeCanFallByTime(1))
 			{
-				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть?
-				m_gridManager.RemoveFilledLines();
-				SpawnNewShape();																				//А это точно тут должно быть?
+				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть? Может вынести как-нибудь в ГеймКонтроллер?
+				int countFieldLines = m_gridManager.RemoveFilledLines();
+
+				if (countFieldLines != 0)
+					m_switcher.EarnPoints(countFieldLines);
+
+				SpawnNewShape();                                                                                //А это точно тут должно быть?
 			}
 		}
 
@@ -62,13 +67,7 @@ namespace Tetris
 
 		public float GetFallTime()
 		{
-			return 1f;				//Заглушка
+			return 1f;              //Заглушка
 		}
-
-		/*private IEnumerator FallShape()
-		{
-			MoveShape(Vector3.down.x, Vector3.down.y);
-			yield return new WaitForSeconds(1f);
-		}*/
 	}
 }
