@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using Tetris;
 using GameControl;
@@ -14,13 +14,23 @@ public class GameController : MonoBehaviour
 	{
 		m_tetrisController = new TetrisController();
 		m_inputManager = new InputManager();
+		m_levelStater = new LevelStater();
 
+		m_tetrisController.SpawnNewShape();
 		StartCoroutine(FallShape());
 	}
 
 	private void Update()
 	{
-		m_tetrisController.MoveShape(m_inputManager.GetHorizontalMove(), m_inputManager.GetVerticalMove());
+
+		if (m_levelStater.GameContinue == false)
+			return;
+
+		m_tetrisController.MoveShapeHorizontal(m_inputManager.GetHorizontalMove());
+
+		if (Convert.ToBoolean(m_inputManager.GetVerticalMove()))
+			if (!m_tetrisController.MoveShapeVerticalByKey())
+				ShapeDelivered();
 
 		if (m_inputManager.GetDownButton("Rotate"))
 			m_tetrisController.Rotate(90);
@@ -30,15 +40,30 @@ public class GameController : MonoBehaviour
 		if (m_inputManager.GetUpButton("Vertical"))
 			StartCoroutine(FallShape());
 
-		/*Зделать чтение на кнопки + и - менять скорость через тетрис контроллер*/
+		if (m_inputManager.GetDownButton("Speed"))
+			m_tetrisController.ChangeSpeed(m_inputManager.GetSpeedChange());
 	}
 
 	private IEnumerator FallShape()
 	{
 		while (true)
 		{
-			m_tetrisController.MoveShape(0, -1);
+			if (!m_tetrisController.AutoMoveShapeVertical())
+				ShapeDelivered();
 			yield return new WaitForSeconds(m_tetrisController.GetFallTime());
 		}
+	}
+
+	private void ShapeDelivered()
+	{
+		if (m_tetrisController.IsCurrentShapeNew())
+		{
+			m_levelStater.GameContinue = false;
+			StopAllCoroutines();
+			return;
+		}
+		m_tetrisController.AddShapeToGrid();
+		m_tetrisController.CheckFilledLines();
+		m_tetrisController.SpawnNewShape();
 	}
 }

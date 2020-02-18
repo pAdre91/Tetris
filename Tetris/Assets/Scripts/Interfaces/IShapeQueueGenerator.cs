@@ -3,5 +3,5 @@
 interface IShapeQueueGenerator
 {
 	GameObject GetNewShape();
-	void AddRandomShapeData();
+	GameObject AddRandomShapeData();
 }

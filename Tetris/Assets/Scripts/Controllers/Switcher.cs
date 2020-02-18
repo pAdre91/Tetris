@@ -47,4 +47,15 @@ public class Switcher : ISwitcher
 	{
 		return m_speeder.Speed;
 	}
+
+	public void ChangeSpeed(bool isIncrement)
+	{
+		if (isIncrement)
+		{
+			m_speeder.IncrementSpeed();
+			return;
+		}
+
+		m_speeder.DecrementSpeed();
+	}
 }

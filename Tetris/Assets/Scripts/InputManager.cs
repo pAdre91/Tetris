@@ -14,6 +14,11 @@ namespace GameControl
 			return Input.GetAxisRaw("Horizontal");
 		}
 
+		public float GetSpeedChange()
+		{
+			return Input.GetAxisRaw("Speed");
+		}
+
 		public bool GetDownButton(string buttonName)
 		{
 			return Input.GetButtonDown(buttonName);
@@ -22,6 +27,11 @@ namespace GameControl
 		public bool GetUpButton(string buttonName)
 		{
 			return Input.GetButtonUp(buttonName);
+		}
+
+		public bool GetButton(string buttonName)
+		{
+			return Input.GetButton(buttonName);
 		}
 	}
 }
