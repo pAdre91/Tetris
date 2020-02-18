@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System;
 using UnityEngine;
 using Tetris;
 using GameControl;
@@ -19,7 +20,11 @@ public class GameController : MonoBehaviour
 
 	private void Update()
 	{
-		m_tetrisController.MoveShape(m_inputManager.GetHorizontalMove(), m_inputManager.GetVerticalMove());
+		m_tetrisController.MoveShapeHorizontal(m_inputManager.GetHorizontalMove());
+
+		if (Convert.ToBoolean(m_inputManager.GetVerticalMove()))
+			if (!m_tetrisController.MoveShapeVerticalByKey())
+				ShapeDelivered();
 
 		if (m_inputManager.GetDownButton("Rotate"))
 			m_tetrisController.Rotate(90);
@@ -28,6 +33,7 @@ public class GameController : MonoBehaviour
 			StopAllCoroutines();
 		if (m_inputManager.GetUpButton("Vertical"))
 			StartCoroutine(FallShape());
+
 		if (m_inputManager.GetDownButton("Speed"))
 			m_tetrisController.ChangeSpeed(m_inputManager.GetSpeedChange());
 	}
@@ -36,8 +42,16 @@ public class GameController : MonoBehaviour
 	{
 		while (true)
 		{
-			m_tetrisController.MoveShape(0, -1);
+			if (!m_tetrisController.AutoMoveShapeVertical())
+				ShapeDelivered();
 			yield return new WaitForSeconds(m_tetrisController.GetFallTime());
 		}
+	}
+
+	private void ShapeDelivered()
+	{
+		m_tetrisController.AddShapeToGrid();
+		m_tetrisController.CheckFilledLines();
+		m_tetrisController.SpawnNewShape();
 	}
 }

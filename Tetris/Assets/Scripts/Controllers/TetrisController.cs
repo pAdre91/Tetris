@@ -31,33 +31,38 @@ namespace Tetris
 			m_shapePositionCoordinator.CurrentShape = m_shapeSpawner.SpawnShape(shapeFromQueue).GetComponent<IShape>();
 		}
 
-		public void MoveShape(float horizontalMove, float verticalMove)     //возвращаемый тип сделать bool и если вернется false, то проверять на наличие заполненных линий
+		public bool MoveShapeVerticalByKey()
 		{
-			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);
-			Vector3 verticalDirection = new Vector3(0, verticalMove, 0);
 			GameObject shapeGO = m_shapePositionCoordinator.CurrentShape.ShapeGameObject;
 
-			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
-			{
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, GetFallTime());        //Магические числа
-			}
-			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && verticalMove < 0)
-			{
-				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, GetFallTime());     //Магические числа
-			}   /*Если фигура может упасть, так как КД падения прошел, но под ней что-то есть*/
-			else if (!m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()))
-			{
-				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть? Может вынести как-нибудь в ГеймКонтроллер?
-				int countFieldLines = m_gridManager.RemoveFilledLines();
+			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()/3))
+				return false;
 
-				if (countFieldLines != 0)                   //Убрать
-				{
-					m_switcher.EarnPoints(countFieldLines);
-					m_switcher.SwitchSpeed();
-				}
+			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * 0.44f, GetFallTime()/3);
+			return true;
+		}
 
-				SpawnNewShape();                                                                                //А это точно тут должно быть?
-			}
+		public bool AutoMoveShapeVertical()
+		{
+			GameObject shapeGO = m_shapePositionCoordinator.CurrentShape.ShapeGameObject;
+
+			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()))
+				return false;
+
+			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * 0.44f, GetFallTime());
+			return true;
+		}
+
+		public void MoveShapeHorizontal(float horizontalMove)
+		{
+			Vector3 horizontalDirection = new Vector3(horizontalMove, 0, 0);
+			GameObject shapeGO = m_shapePositionCoordinator.CurrentShape.ShapeGameObject;
+
+			if (horizontalDirection == Vector3.zero)
+				return;
+
+			if (m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, GetFallTime()/3);        //Магические числа
 		}
 
 		public void Rotate(int angle)
@@ -66,6 +71,22 @@ namespace Tetris
 			{
 				m_shapePositionCoordinator.RotateShape(angle);
 			}
+		}
+
+		public void AddShapeToGrid()
+		{
+			m_gridManager.AddShapeToGrid(m_shapePositionCoordinator.CurrentShape.ShapeGameObject);
+		}
+
+		public void CheckFilledLines()
+		{
+			int countFieldLines = m_gridManager.RemoveFilledLines();
+
+			if (countFieldLines == 0)
+				return;
+
+			m_switcher.EarnPoints(countFieldLines);
+			m_switcher.SwitchSpeed();
 		}
 
 		public float GetFallTime()

@@ -28,5 +28,10 @@ namespace GameControl
 		{
 			return Input.GetButtonUp(buttonName);
 		}
+
+		public bool GetButton(string buttonName)
+		{
+			return Input.GetButton(buttonName);
+		}
 	}
 }
