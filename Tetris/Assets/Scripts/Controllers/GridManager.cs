@@ -10,11 +10,13 @@ namespace Tetris        //Grid?
 
 		IGridModel m_gridModel;
 		ILineChecker m_lineChecker;
+		ILineScorer m_lineScorer;
 
 		public GridManager()
 		{
 			m_gridModel = new GridModel(10, 20);         //Убрать хардкод!
 			m_lineChecker = new LineChecker();
+			m_lineScorer = new LineScorer(); 
 		}
 
 		public bool ValidateShapeMove(GameObject shape, Vector3 direction)
@@ -68,6 +70,7 @@ namespace Tetris        //Grid?
 				RowDown(numberLine, gridWidth, gridHeight);
 			}
 
+			m_lineScorer.AddNewLines(filledLines.Count);
 			return filledLines.Count;
 		}
 
