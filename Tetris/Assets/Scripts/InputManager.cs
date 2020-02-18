@@ -14,6 +14,11 @@ namespace GameControl
 			return Input.GetAxisRaw("Horizontal");
 		}
 
+		public float GetSpeedChange()
+		{
+			return Input.GetAxisRaw("Speed");
+		}
+
 		public bool GetDownButton(string buttonName)
 		{
 			return Input.GetButtonDown(buttonName);

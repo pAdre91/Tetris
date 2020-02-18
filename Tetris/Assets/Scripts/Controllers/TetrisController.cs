@@ -73,5 +73,13 @@ namespace Tetris
 		{
 			return 1/m_switcher.GetSpeed();              //Заглушка
 		}
+
+		public void ChangeSpeed(float sign)
+		{
+			if(sign > 0)		//Считать первый бит
+				m_switcher.ChangeSpeed(true);
+			else
+				m_switcher.ChangeSpeed(false);
+		}
 	}
 }

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Tetris;
 using GameControl;
@@ -29,8 +28,10 @@ public class GameController : MonoBehaviour
 			StopAllCoroutines();
 		if (m_inputManager.GetUpButton("Vertical"))
 			StartCoroutine(FallShape());
+		if (m_inputManager.GetDownButton("Speed"))
+			m_tetrisController.ChangeSpeed(m_inputManager.GetSpeedChange());
 
-		/*Зделать чтение на кнопки + и - менять скорость через тетрис контроллер*/
+		
 	}
 
 	private IEnumerator FallShape()

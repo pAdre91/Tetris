@@ -75,6 +75,8 @@
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelStater.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILineChecker.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILineScorer.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\ILineView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScoreView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IScorer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IShape.cs" />
