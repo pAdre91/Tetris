@@ -30,8 +30,6 @@ public class GameController : MonoBehaviour
 			StartCoroutine(FallShape());
 		if (m_inputManager.GetDownButton("Speed"))
 			m_tetrisController.ChangeSpeed(m_inputManager.GetSpeedChange());
-
-		
 	}
 
 	private IEnumerator FallShape()

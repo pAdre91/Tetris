@@ -9,18 +9,18 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 	private float previousVerticalTime = 0f;
 	private float previousHorizontalTime = 0f;
 
-	public void HorizontalMoveShape(Vector3 direction, float speed)
+	public void HorizontalMoveShape(Vector3 direction, float fallTime)
 	{
-		if (Time.time - previousHorizontalTime < 0.2/speed)     //Магические числа! //Коэффициент увеличения скорости
+		if (Time.time - previousHorizontalTime < fallTime)     //Магические числа! //Коэффициент увеличения скорости
 			return;
 
 		previousHorizontalTime = Time.time;
 		CurrentShape.Move(direction);
 	}
 
-	public void VerticalMoveShape(Vector3 direction, float speed)
+	public void VerticalMoveShape(Vector3 direction, float fallTime)
 	{
-		if (!IsShapeCanFallByTime(speed))
+		if (!IsShapeCanFallByTime(fallTime))
 			return;
 		previousVerticalTime = Time.time;
 		CurrentShape.Move(direction);
@@ -31,9 +31,9 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 		CurrentShape.Rotate(angle);
 	}
 
-	public bool IsShapeCanFallByTime(float speed)
+	public bool IsShapeCanFallByTime(float fallTime)
 	{
-		if (Time.time - previousVerticalTime < 0.2 / speed)         //Магические числа!
+		if (Time.time - previousVerticalTime < fallTime)         //Магические числа!
 			return false;
 		return true;
 	}

@@ -39,13 +39,13 @@ namespace Tetris
 
 			if (horizontalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
 			{
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, 1);        //Магические числа
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, GetFallTime());        //Магические числа
 			}
 			if (verticalDirection != Vector3.zero && m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && verticalMove < 0)
 			{
-				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, 1);     //Магические числа
+				m_shapePositionCoordinator.VerticalMoveShape(verticalDirection * 0.44f, GetFallTime());     //Магические числа
 			}   /*Если фигура может упасть, так как КД падения прошел, но под ней что-то есть*/
-			else if (!m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && m_shapePositionCoordinator.IsShapeCanFallByTime(1))
+			else if (!m_gridManager.ValidateShapeMove(shapeGO, verticalDirection) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()))
 			{
 				m_gridManager.AddShapeToGrid(shapeGO);      //А это точно тут должно быть? Может вынести как-нибудь в ГеймКонтроллер?
 				int countFieldLines = m_gridManager.RemoveFilledLines();
@@ -55,7 +55,6 @@ namespace Tetris
 					m_switcher.EarnPoints(countFieldLines);
 					m_switcher.SwitchSpeed();
 				}
-
 
 				SpawnNewShape();                                                                                //А это точно тут должно быть?
 			}
@@ -71,7 +70,7 @@ namespace Tetris
 
 		public float GetFallTime()
 		{
-			return 1/m_switcher.GetSpeed();              //Заглушка
+			return (float)1 / m_switcher.GetSpeed();
 		}
 
 		public void ChangeSpeed(float sign)
