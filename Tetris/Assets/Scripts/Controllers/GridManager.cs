@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-namespace Tetris		//Grid?
+namespace Tetris        //Grid?
 {
 	public class GridManager : IGridManager
 	{
@@ -12,7 +12,7 @@ namespace Tetris		//Grid?
 
 		public GridManager()
 		{
-			m_gridModel = new GridModel(10,20);         //Убрать хардкод!
+			m_gridModel = new GridModel(10, 20);         //Убрать хардкод!
 			m_lineChecker = new LineChecker();
 		}
 
@@ -36,7 +36,7 @@ namespace Tetris		//Grid?
 
 				TranslateCoordinateToGridNumbers(rotatedChildrenToWorldPoint, out byte x, out byte y, Vector3.zero);
 
-				if(!m_gridModel.IsAreaFree(x,y))
+				if (!m_gridModel.IsAreaFree(x, y))
 					return false;
 			}
 			return true;
@@ -51,14 +51,14 @@ namespace Tetris		//Grid?
 			}
 		}
 
-		public void RemoveFilledLines()
+		public int RemoveFilledLines()
 		{
 			Stack<byte> filledLines = m_lineChecker.GetNumbersFilledLines(m_gridModel.PlayFieldGrid);
 			int gridWidth = m_gridModel.PlayFieldGrid.GetLength(0);
 			int gridHeight = m_gridModel.PlayFieldGrid.GetLength(1);
 
 			if (filledLines.Count <= 0)
-				return;
+				return 0;
 
 			foreach (byte numberLine in filledLines)
 			{
@@ -66,6 +66,8 @@ namespace Tetris		//Grid?
 					m_gridModel.RemoveArea(j, numberLine);
 				RowDown(numberLine, gridWidth, gridHeight);
 			}
+
+			return filledLines.Count;
 		}
 
 		private void RowDown(byte startNumberLine, int gridWidth, int gridHeight)
