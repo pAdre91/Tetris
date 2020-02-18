@@ -37,4 +37,9 @@ public class ShapePositionCoordinator : IShapePositionCoordinator
 			return false;
 		return true;
 	}
+
+	public bool IsCurrentShapeNew()
+	{
+		return CurrentShape.IsShapeNew();
+	}
 }

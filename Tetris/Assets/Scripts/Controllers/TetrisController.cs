@@ -101,5 +101,10 @@ namespace Tetris
 			else
 				m_switcher.ChangeSpeed(false);
 		}
+
+		public bool IsCurrentShapeNew()
+		{
+			return m_shapePositionCoordinator.IsCurrentShapeNew();
+		}
 	}
 }

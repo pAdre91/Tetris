@@ -11,5 +11,6 @@
 		void AddShapeToGrid();
 		void CheckFilledLines();
 		void SpawnNewShape();
+		bool IsCurrentShapeNew();
 	}
 }

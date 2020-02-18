@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\GridModel.cs" />
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDestroyer.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IGameOverView.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGridController.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGridManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="Assets\Scripts\Interfaces\ISpeeder.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ISwitcher.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ITetrisController.cs" />
+    <Compile Include="Assets\Scripts\LevelStater.cs" />
     <Compile Include="Assets\Scripts\LineChecker.cs" />
     <Compile Include="Assets\Scripts\LineScorer.cs" />
     <Compile Include="Assets\Scripts\Scorer.cs" />
@@ -95,6 +97,7 @@
     <Compile Include="Assets\Scripts\ShapeQueueGenerator.cs" />
     <Compile Include="Assets\Scripts\ShapeSpawner.cs" />
     <Compile Include="Assets\Scripts\Speeder.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverView.cs" />
     <Compile Include="Assets\Scripts\UI\LineView.cs" />
     <Compile Include="Assets\Scripts\UI\ScoreView.cs" />
     <Compile Include="Assets\Scripts\UI\SpeedView.cs" />

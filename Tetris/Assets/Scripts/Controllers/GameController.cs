@@ -14,12 +14,17 @@ public class GameController : MonoBehaviour
 	{
 		m_tetrisController = new TetrisController();
 		m_inputManager = new InputManager();
+		m_levelStater = new LevelStater();
 
 		StartCoroutine(FallShape());
 	}
 
 	private void Update()
 	{
+
+		if (m_levelStater.GameContinue == false)
+			return;
+
 		m_tetrisController.MoveShapeHorizontal(m_inputManager.GetHorizontalMove());
 
 		if (Convert.ToBoolean(m_inputManager.GetVerticalMove()))
@@ -50,6 +55,12 @@ public class GameController : MonoBehaviour
 
 	private void ShapeDelivered()
 	{
+		if (m_tetrisController.IsCurrentShapeNew())
+		{
+			m_levelStater.GameContinue = false;
+			StopAllCoroutines();
+			return;
+		}
 		m_tetrisController.AddShapeToGrid();
 		m_tetrisController.CheckFilledLines();
 		m_tetrisController.SpawnNewShape();

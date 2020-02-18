@@ -6,6 +6,7 @@ namespace Tetris
 	{
 		[SerializeField]
 		private Vector3 m_rotationPoint;
+		private bool m_isNewShape = true;
 
 		public Vector3 RotationPoint
 		{
@@ -25,11 +26,17 @@ namespace Tetris
 		public void Move(Vector3 direction)
 		{
 			transform.position += direction;
+			m_isNewShape = false;
 		}
 
 		public void Rotate(int angle)			//точно ли нужен угол?
 		{
 			transform.RotateAround(transform.TransformPoint(m_rotationPoint), new Vector3(0, 0, 1), angle);
+		}
+
+		public bool IsShapeNew()
+		{
+			return m_isNewShape;
 		}
 	}
 }
