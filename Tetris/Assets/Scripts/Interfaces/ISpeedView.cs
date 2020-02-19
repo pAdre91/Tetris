@@ -1,4 +1,7 @@
-﻿interface ISpeedView
+﻿namespace UI
 {
-	void RefreshSpeedView(int newSpeed);
+	interface ISpeedView
+	{
+		void RefreshSpeedView(int newSpeed);
+	}
 }

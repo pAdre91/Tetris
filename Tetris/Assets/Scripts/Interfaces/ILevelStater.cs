@@ -1,4 +1,7 @@
-﻿interface ILevelStater
+﻿namespace Tetris
 {
-	bool GameContinue { get; set; }
+	interface ILevelStater
+	{
+		bool GameContinue { get; set; }
+	}
 }

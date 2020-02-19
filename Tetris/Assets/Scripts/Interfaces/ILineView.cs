@@ -1,4 +1,7 @@
-﻿interface ILineView
+﻿namespace UI
 {
-	void RefreshLineView(int newLineCount);
+	interface ILineView
+	{
+		void RefreshLineView(int newLineCount);
+	}
 }

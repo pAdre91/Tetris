@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
-using Сonstant;
+using Auxiliary;
+using Tetris;
 
-namespace Tetris
+namespace Controllers
 {
 	public class TetrisController : ITetrisController
 	{

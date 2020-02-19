@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-interface INextShapeView
+namespace UI
 {
-	void CreateNewShape(GameObject newShape);
+	interface INextShapeView
+	{
+		void CreateNewShape(GameObject newShape);
+	}
 }

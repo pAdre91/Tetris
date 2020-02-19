@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-interface IShapeQueueGenerator
+namespace Tetris
 {
-	GameObject GetNewShape();
-	GameObject AddRandomShapeData();
+	interface IShapeQueueGenerator
+	{
+		GameObject GetNewShape();
+		GameObject AddRandomShapeData();
+	}
 }

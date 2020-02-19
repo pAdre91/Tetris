@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tetris
+namespace UI
 {
 	class GameOverView : MonoBehaviour, IGameOverView
 	{

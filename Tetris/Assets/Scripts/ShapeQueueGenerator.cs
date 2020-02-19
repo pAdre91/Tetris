@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using Сonstant;
+using Auxiliary;
 
 namespace Tetris
 {

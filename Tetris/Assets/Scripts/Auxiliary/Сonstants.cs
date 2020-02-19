@@ -1,4 +1,4 @@
-﻿namespace Сonstant
+﻿namespace Auxiliary
 {
 	static class Сonstants
 	{

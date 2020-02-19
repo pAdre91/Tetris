@@ -1,5 +1,8 @@
-﻿interface IScorer
+﻿namespace Tetris
 {
-	void AddNewPoints(int newPoints);
-	int Score { get; }
+	interface IScorer
+	{
+		void AddNewPoints(int newPoints);
+		int Score { get; }
+	}
 }

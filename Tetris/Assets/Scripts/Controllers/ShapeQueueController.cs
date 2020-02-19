@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
+using Tetris;
+using UI;
 
-namespace Tetris
+namespace Controllers
 {
 	class ShapeQueueController : IShapeQueueController
 	{

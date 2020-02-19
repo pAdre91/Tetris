@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameControl
+namespace GameInput
 {		/*Все ли используется?*/
 	class InputManager : IInputManager
 	{

@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 
-interface IShapeQueueController
+namespace Controllers
 {
-	void AddRandomShape();
-	GameObject GetNewShape();
+	interface IShapeQueueController
+	{
+		void AddRandomShape();
+		GameObject GetNewShape();
+	}
 }

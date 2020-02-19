@@ -1,4 +1,4 @@
-﻿namespace Tetris
+﻿namespace Controllers
 {
 	interface ITetrisController
 	{

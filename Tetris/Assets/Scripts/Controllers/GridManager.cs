@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Сonstant;
+using Auxiliary;
+using Tetris;
 
-namespace Tetris        //Grid?
+namespace Controllers
 {
 	public class GridManager : IGridManager
 	{

@@ -1,4 +1,7 @@
-﻿interface IScoreView
+﻿namespace UI
 {
-	void RefreshScoreView(int newScore);
+	interface IScoreView
+	{
+		void RefreshScoreView(int newScore);
+	}
 }

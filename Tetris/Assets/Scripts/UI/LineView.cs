@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Tetris
+namespace UI
 {
 	class LineView : MonoBehaviour, ILineView
 	{

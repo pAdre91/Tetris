@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-interface IDestroyer
+namespace Auxiliary
 {
-	void RemoveObject(GameObject removeObject);
+	interface IDestroyer
+	{
+		void RemoveObject(GameObject removeObject);
+	}
 }
