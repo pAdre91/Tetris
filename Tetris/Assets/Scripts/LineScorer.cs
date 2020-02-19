@@ -7,7 +7,7 @@ namespace Tetris
 {
 	class LineScorer : ILineScorer
 	{
-		private	ILineView	m_lineView;
+		private	IInfoView	m_lineView;
 
 		public int LineScore { get; private set; } = Сonstants.m_startLineCount;
 
@@ -19,7 +19,7 @@ namespace Tetris
 		public void AddNewLines(int newLines)
 		{
 			LineScore += newLines;
-			m_lineView.RefreshLineView(LineScore);
+			m_lineView.RefreshInfo(LineScore);
 		}
 	}
 }

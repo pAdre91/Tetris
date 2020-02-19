@@ -3,7 +3,7 @@ using Auxiliary;
 
 namespace UI
 {
-	class LineView : MonoBehaviour, ILineView
+	class LineView : MonoBehaviour, IInfoView
 	{
 		private	TextMesh		m_lineScore;
 		private	const string	m_scoreTextTemplate	=	"Line:\n";
@@ -14,7 +14,7 @@ namespace UI
 			m_lineScore.text = m_scoreTextTemplate + Сonstants.m_startLineCount;
 		}
 
-		public void RefreshLineView(int newLineScore)
+		public void RefreshInfo(int newLineScore)
 		{
 			m_lineScore.text = m_scoreTextTemplate + newLineScore;
 		}

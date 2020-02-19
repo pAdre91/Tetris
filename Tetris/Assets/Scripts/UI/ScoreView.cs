@@ -3,7 +3,7 @@ using Auxiliary;
 
 namespace UI
 {
-	public class ScoreView : MonoBehaviour, IScoreView
+	public class ScoreView : MonoBehaviour, IInfoView
 	{
 		private	TextMesh		m_meshScore;
 		private	const string	m_scoreTextTemplate = "Score:\n";
@@ -16,7 +16,7 @@ namespace UI
 			m_meshScore.text = m_scoreTextTemplate + Сonstants.m_startScore;
 		}
 
-		public void RefreshScoreView(int newScore)
+		public void RefreshInfo(int newScore)
 		{
 			m_meshScore.text = m_scoreTextTemplate + newScore;
 		}

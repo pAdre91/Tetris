@@ -3,7 +3,7 @@ using Auxiliary;
 
 namespace UI
 {
-	public class SpeedView : MonoBehaviour, ISpeedView
+	public class SpeedView : MonoBehaviour, IInfoView
 	{
 		private	TextMesh		m_meshSpeed;
 		private	const string	m_speedTextTemplate = "Speed:\n";
@@ -16,7 +16,7 @@ namespace UI
 			m_meshSpeed.text = m_speedTextTemplate + Сonstants.m_minimalSpeed;
 		}
 
-		public void RefreshSpeedView(int newSpeed)
+		public void RefreshInfo(int newSpeed)
 		{
 			m_meshSpeed.text = m_speedTextTemplate + newSpeed;
 		}

@@ -6,7 +6,7 @@ namespace Tetris
 {
 	class Speeder : ISpeeder
 	{
-		private	ISpeedView	m_speedView;			//IInfoViewer?
+		private	IInfoView	m_speedView;			//IInfoViewer?
 
 		public int Speed { get; private set; } = Сonstants.m_minimalSpeed;
 
@@ -18,7 +18,7 @@ namespace Tetris
 		public void IncrementSpeed()
 		{
 			Speed++;
-			m_speedView.RefreshSpeedView(Speed);
+			m_speedView.RefreshInfo(Speed);
 		}
 
 		public void DecrementSpeed()
@@ -27,7 +27,7 @@ namespace Tetris
 				return;
 
 			Speed--;
-			m_speedView.RefreshSpeedView(Speed);
+			m_speedView.RefreshInfo(Speed);
 		}
 	}
 }
