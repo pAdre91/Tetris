@@ -10,7 +10,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{D2BFFF02-D087-DB1A-C7FE-6538A965A290}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -63,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Auxiliary\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\Auxiliary\Сonstants.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GridManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShapeQueueController.cs" />
@@ -72,7 +74,7 @@
     <Compile Include="Assets\Scripts\InputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IDestroyer.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGameOverView.cs" />
-    <Compile Include="Assets\Scripts\Interfaces\IGridController.cs" />
+    <Compile Include="Assets\Scripts\Interfaces\IGridModel.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IGridManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\IInputManager.cs" />
     <Compile Include="Assets\Scripts\Interfaces\ILevelStater.cs" />

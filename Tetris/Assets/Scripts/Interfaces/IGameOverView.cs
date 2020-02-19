@@ -1,5 +1,8 @@
-﻿interface IGameOverView
+﻿namespace UI
 {
-	void ActivaleGameOverPanel();
-	void DeactivaleGameOverPanel();
+	interface IGameOverView
+	{
+		void ActivaleGameOverPanel();
+		void DeactivaleGameOverPanel();
+	}
 }

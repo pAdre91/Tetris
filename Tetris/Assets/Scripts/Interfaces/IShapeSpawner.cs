@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 
-interface IShapeSpawner
+namespace Tetris
 {
-	GameObject SpawnShape(GameObject ShapePrefab);
+	interface IShapeSpawner
+	{
+		GameObject SpawnShape(GameObject ShapePrefab);
+	}
 }

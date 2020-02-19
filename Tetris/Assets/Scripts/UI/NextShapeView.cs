@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-namespace Tetris
+namespace UI
 {
 	class NextShapeView : MonoBehaviour, INextShapeView
 	{
 		[SerializeField]
-		private GameObject m_nextShapeSpawner;
-		private GameObject m_currentShape;
+		private	GameObject	m_nextShapeSpawner;
+		private	GameObject	m_currentShape;
 
 		public void CreateNewShape(GameObject newShape)
 		{

@@ -1,7 +1,10 @@
-﻿interface ISwitcher
+﻿namespace Controllers
 {
-	void EarnPoints(int filledLineCount);
-	void SwitchSpeed();
-	int GetSpeed();
-	void ChangeSpeed(bool isIncrement);
+	interface ISwitcher
+	{
+		void EarnPoints(int filledLineCount);
+		void SwitchSpeed();
+		int GetSpeed();
+		void ChangeSpeed(bool isIncrement);
+	}
 }

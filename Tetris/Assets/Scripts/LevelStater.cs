@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
+using UI;
 
 namespace Tetris
 {
 	class LevelStater : ILevelStater
 	{
-		private bool m_gameContinue = true;
-		private IGameOverView m_gameOverView;
+		private	bool			m_gameContinue	=	true;
+		private	IGameOverView	m_gameOverView;
 
 		public LevelStater()
 		{

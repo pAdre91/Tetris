@@ -1,17 +1,16 @@
 ﻿using UnityEngine;
 
-namespace Tetris
+namespace UI
 {
 	class LineView : MonoBehaviour, ILineView
 	{
-		private TextMesh m_lineScore;
-		private const string m_scoreTextTemplate = "Line:\n";
+		private	TextMesh		m_lineScore;
+		private	const string	m_scoreTextTemplate	=	"Line:\n";
 
 		private void Start()
 		{
 			int startedLineScore = 0;
 			m_lineScore = gameObject.GetComponent<TextMesh>();
-
 			m_lineScore.text = m_scoreTextTemplate + startedLineScore;
 		}
 

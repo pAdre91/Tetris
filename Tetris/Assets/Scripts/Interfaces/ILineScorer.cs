@@ -1,5 +1,8 @@
-﻿interface ILineScorer
+﻿namespace Tetris
 {
-	void AddNewLines(int newLines);
-	int LineScore { get; }
+	interface ILineScorer
+	{
+		void AddNewLines(int newLines);
+		int LineScore { get; }
+	}
 }

@@ -1,25 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Auxiliary;
+using Tetris;
 
-namespace Tetris
+namespace Controllers
 {
 	public class TetrisController : ITetrisController
 	{
-		private IShapeQueueController m_shapeQueueController;
-		private IShapeSpawner m_shapeSpawner;
-		private IShapePositionCoordinator m_shapePositionCoordinator;
-		private IGridManager m_gridManager;
-		private ISwitcher m_switcher;
+		private	IShapeQueueController		m_shapeQueueController;
+		private	IShapeSpawner				m_shapeSpawner;
+		private	IShapePositionCoordinator	m_shapePositionCoordinator;
+		private	IGridManager				m_gridManager;
+		private	ISwitcher					m_switcher;
 
 		public TetrisController()
 		{
-			m_shapeQueueController = new ShapeQueueController();
-			m_shapePositionCoordinator = new ShapePositionCoordinator();
-			m_gridManager = new GridManager();
-			m_switcher = new Switcher();
+			m_shapeQueueController		=	new	ShapeQueueController		();
+			m_shapePositionCoordinator	=	new	ShapePositionCoordinator	();
+			m_gridManager				=	new	GridManager					();
+			m_switcher					=	new	Switcher					();
 
-			m_shapeSpawner = GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
+			m_shapeSpawner				=	GameObject.FindGameObjectWithTag("Spawner").GetComponent<IShapeSpawner>();
 		}
 
 		public void SpawnNewShape()
@@ -37,7 +37,7 @@ namespace Tetris
 			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()/3))
 				return false;
 
-			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * 0.44f, GetFallTime()/3);
+			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * Сonstants.m_scale, GetFallTime()/3);
 			return true;
 		}
 
@@ -48,7 +48,7 @@ namespace Tetris
 			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()))
 				return false;
 
-			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * 0.44f, GetFallTime());
+			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * Сonstants.m_scale, GetFallTime());
 			return true;
 		}
 
@@ -61,7 +61,7 @@ namespace Tetris
 				return;
 
 			if (m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * 0.436f, GetFallTime()/3);        //Магические числа
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * Сonstants.m_scale, GetFallTime()/3);        //Магические числа
 		}
 
 		public void Rotate(int angle)

@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-interface ILineChecker
+namespace Tetris
 {
-	Stack<byte> GetNumbersFilledLines(Transform[,] grid);
+	interface ILineChecker
+	{
+		Stack<byte> GetNumbersFilledLines(Transform[,] grid);
+	}
 }

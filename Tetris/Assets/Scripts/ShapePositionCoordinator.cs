@@ -1,45 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class ShapePositionCoordinator : IShapePositionCoordinator
+namespace Tetris
 {
-	public IShape CurrentShape { set; get; }            //Может убрать, а  метода просто передавать конкретную фигуру?
-
-	private float previousVerticalTime = 0f;
-	private float previousHorizontalTime = 0f;
-
-	public void HorizontalMoveShape(Vector3 direction, float fallTime)
+	public class ShapePositionCoordinator : IShapePositionCoordinator
 	{
-		if (Time.time - previousHorizontalTime < fallTime)     //Магические числа! //Коэффициент увеличения скорости
-			return;
+		public	IShape CurrentShape { set; get; }            //Может убрать, а  метода просто передавать конкретную фигуру?
 
-		previousHorizontalTime = Time.time;
-		CurrentShape.Move(direction);
-	}
+		private	float	previousVerticalTime	=	0f;
+		private	float	previousHorizontalTime	=	0f;
 
-	public void VerticalMoveShape(Vector3 direction, float fallTime)
-	{
-		if (!IsShapeCanFallByTime(fallTime))
-			return;
-		previousVerticalTime = Time.time;
-		CurrentShape.Move(direction);
-	}
+		public void HorizontalMoveShape(Vector3 direction, float fallTime)
+		{
+			if (Time.time - previousHorizontalTime < fallTime)     //Магические числа! //Коэффициент увеличения скорости
+				return;
 
-	public void RotateShape(int angle)
-	{
-		CurrentShape.Rotate(angle);
-	}
+			previousHorizontalTime = Time.time;
+			CurrentShape.Move(direction);
+		}
 
-	public bool IsShapeCanFallByTime(float fallTime)
-	{
-		if (Time.time - previousVerticalTime < fallTime)         //Магические числа!
-			return false;
-		return true;
-	}
+		public void VerticalMoveShape(Vector3 direction, float fallTime)
+		{
+			if (!IsShapeCanFallByTime(fallTime))
+				return;
+			previousVerticalTime = Time.time;
+			CurrentShape.Move(direction);
+		}
 
-	public bool IsCurrentShapeNew()
-	{
-		return CurrentShape.IsShapeNew();
+		public void RotateShape(int angle)
+		{
+			CurrentShape.Rotate(angle);
+		}
+
+		public bool IsShapeCanFallByTime(float fallTime)
+		{
+			if (Time.time - previousVerticalTime < fallTime)         //Магические числа!
+				return false;
+			return true;
+		}
+
+		public bool IsCurrentShapeNew()
+		{
+			return CurrentShape.IsShapeNew();
+		}
 	}
 }

@@ -1,11 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Destroyer : MonoBehaviour, IDestroyer
+namespace Auxiliary
 {
-	public void RemoveObject(GameObject removeObject)
+	public class Destroyer : MonoBehaviour, IDestroyer
 	{
-		Destroy(removeObject);
+		public void RemoveObject(GameObject removeObject)
+		{
+			Destroy(removeObject);
+		}
 	}
 }

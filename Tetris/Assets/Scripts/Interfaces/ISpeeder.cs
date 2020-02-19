@@ -1,6 +1,9 @@
-﻿interface ISpeeder
+﻿namespace Tetris
 {
-	void IncrementSpeed();
-	void DecrementSpeed();
-	int Speed { get; }
+	interface ISpeeder
+	{
+		void IncrementSpeed();
+		void DecrementSpeed();
+		int Speed { get; }
+	}
 }
