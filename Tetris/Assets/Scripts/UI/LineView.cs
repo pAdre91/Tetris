@@ -5,7 +5,7 @@ namespace Tetris
 	class LineView : MonoBehaviour, ILineView
 	{
 		private	TextMesh		m_lineScore;
-		private	const string	m_scoreTextTemplate = "Line:\n";
+		private	const string	m_scoreTextTemplate	=	"Line:\n";
 
 		private void Start()
 		{

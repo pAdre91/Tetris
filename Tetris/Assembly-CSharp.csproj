@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Auxiliary\Destroyer.cs" />
+    <Compile Include="Assets\Scripts\Auxiliary\Сonstants.cs" />
     <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
     <Compile Include="Assets\Scripts\Controllers\GridManager.cs" />
     <Compile Include="Assets\Scripts\Controllers\ShapeQueueController.cs" />

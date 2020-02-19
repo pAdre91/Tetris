@@ -6,7 +6,7 @@ namespace Tetris        //Grid?
 {
 	public class GridManager : IGridManager
 	{
-		private float m_scale = 0.436f;             //Тут ли его хранить? //Убрать хардкод!
+		private float m_scale = 0.4f;             //Тут ли его хранить? //Убрать хардкод!
 
 		IGridModel		m_gridModel;
 		ILineChecker	m_lineChecker;
