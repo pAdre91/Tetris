@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UI;
+using Auxiliary;
 
 namespace Tetris
 {
@@ -7,7 +8,7 @@ namespace Tetris
 	{
 		private	IScoreView	m_scoreView;
 
-		public int Score { get; private set; } = 0;
+		public int Score { get; private set; } = Сonstants.m_startScore;
 
 		public Scorer()
 		{

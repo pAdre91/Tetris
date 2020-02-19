@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Auxiliary;
 
 namespace UI
 {
@@ -10,10 +11,9 @@ namespace UI
 
 		private void Start()
 		{
-			int startedScore = 0;
 			m_meshScore = gameObject.GetComponent<TextMesh>();
 
-			m_meshScore.text = m_scoreTextTemplate + startedScore;
+			m_meshScore.text = m_scoreTextTemplate + Сonstants.m_startScore;
 		}
 
 		public void RefreshScoreView(int newScore)

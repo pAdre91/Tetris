@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
 using UI;
 
+using Auxiliary;
+
 namespace Tetris
 {
 	class LineScorer : ILineScorer
 	{
 		private	ILineView	m_lineView;
 
-		public int LineScore { get; private set; } = 0;
+		public int LineScore { get; private set; } = Сonstants.m_startLineCount;
 
 		public LineScorer()
 		{

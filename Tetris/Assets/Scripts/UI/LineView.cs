@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Auxiliary;
 
 namespace UI
 {
@@ -9,9 +10,8 @@ namespace UI
 
 		private void Start()
 		{
-			int startedLineScore = 0;
 			m_lineScore = gameObject.GetComponent<TextMesh>();
-			m_lineScore.text = m_scoreTextTemplate + startedLineScore;
+			m_lineScore.text = m_scoreTextTemplate + Сonstants.m_startLineCount;
 		}
 
 		public void RefreshLineView(int newLineScore)

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Auxiliary;
 
 namespace Tetris
 {
@@ -9,9 +10,9 @@ namespace Tetris
 		private	float	previousVerticalTime	=	0f;
 		private	float	previousHorizontalTime	=	0f;
 
-		public void HorizontalMoveShape(Vector3 direction, float fallTime)
+		public void HorizontalMoveShape(Vector3 direction)
 		{
-			if (Time.time - previousHorizontalTime < fallTime)     //Магические числа! //Коэффициент увеличения скорости
+			if (Time.time - previousHorizontalTime < Сonstants.m_timeHorizontMove)     //Магические числа! //Коэффициент увеличения скорости
 				return;
 
 			previousHorizontalTime = Time.time;

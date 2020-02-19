@@ -34,10 +34,10 @@ namespace Controllers
 		{
 			GameObject shapeGO = m_shapePositionCoordinator.CurrentShape.ShapeGameObject;
 
-			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()/3))
+			if (!m_gridManager.ValidateShapeMove(shapeGO, Vector3.down) && m_shapePositionCoordinator.IsShapeCanFallByTime(GetFallTime()/Сonstants.m_accelerationVerticalMove))
 				return false;
 
-			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * Сonstants.m_scale, GetFallTime()/3);
+			m_shapePositionCoordinator.VerticalMoveShape(Vector3.down * Сonstants.m_scale, GetFallTime()/Сonstants.m_accelerationVerticalMove);
 			return true;
 		}
 
@@ -61,7 +61,7 @@ namespace Controllers
 				return;
 
 			if (m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * Сonstants.m_scale, GetFallTime()/3);        //Магические числа
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * Сonstants.m_scale);        //Магические числа
 		}
 
 		public void Rotate(int angle)
