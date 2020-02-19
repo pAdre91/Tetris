@@ -61,7 +61,7 @@ namespace Controllers
 				return;
 
 			if (m_gridManager.ValidateShapeMove(shapeGO, horizontalDirection))
-				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * Сonstants.m_scale);        //Магические числа
+				m_shapePositionCoordinator.HorizontalMoveShape(horizontalDirection * Сonstants.m_scale);
 		}
 
 		public void Rotate(int angle)

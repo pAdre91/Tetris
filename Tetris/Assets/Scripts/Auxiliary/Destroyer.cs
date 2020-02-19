@@ -4,9 +4,17 @@ namespace Auxiliary
 {
 	public class Destroyer : MonoBehaviour, IDestroyer
 	{
-		public void RemoveObject(GameObject removeObject)
+		public void RemoveBrick(GameObject removeObject)
 		{
-			Destroy(removeObject);
+			Transform parent = removeObject.transform.parent;
+
+			if (parent.transform.childCount == 1)
+			{
+				Destroy(removeObject);
+				Destroy(parent.gameObject);
+			}
+
+			DestroyImmediate(removeObject);
 		}
 	}
 }

@@ -4,6 +4,6 @@ namespace Auxiliary
 {
 	interface IDestroyer
 	{
-		void RemoveObject(GameObject removeObject);
+		void RemoveBrick(GameObject removeObject);
 	}
 }

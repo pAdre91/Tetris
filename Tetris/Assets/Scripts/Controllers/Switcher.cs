@@ -25,7 +25,7 @@ namespace Controllers
 
 		public void EarnPoints(int filledLineCount)
 		{
-			switch (filledLineCount)        //Логи?
+			switch (filledLineCount)
 			{
 				case 1: m_scorer.AddNewPoints((int)PointsForFiledLines.OneLine);	break;
 				case 2: m_scorer.AddNewPoints((int)PointsForFiledLines.TwoLines);	break;

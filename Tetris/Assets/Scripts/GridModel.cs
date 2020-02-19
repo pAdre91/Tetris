@@ -11,7 +11,7 @@ namespace Tetris
 		private	byte		m_height;
 		private	IDestroyer	m_destroyer;
 
-		private	GridModel() { }			//Может есть другой способ?
+		private	GridModel() { }
 		public	GridModel(byte width, byte height)
 		{
 			PlayFieldGrid = new Transform[width, height];
@@ -32,13 +32,13 @@ namespace Tetris
 
 		public void SetArea(byte x, byte y, Transform newObject)
 		{
-			PlayFieldGrid[x, y] = newObject;			//Проверка и логи
+			PlayFieldGrid[x, y] = newObject;
 		}
 
 		public void RemoveArea(byte x, byte y)
 		{
-			m_destroyer.RemoveObject(PlayFieldGrid[x, y].gameObject);
-			PlayFieldGrid[x, y] = null;				//Проверка и логи
+			m_destroyer.RemoveBrick(PlayFieldGrid[x, y].gameObject);
+			PlayFieldGrid[x, y] = null;
 		}
 
 		public void ReplaceAreaFromGrid(int startX, int startY, int endX, int endY, Vector3 derection)

@@ -6,7 +6,7 @@ namespace Tetris
 {
 	class Speeder : ISpeeder
 	{
-		private	IInfoView	m_speedView;			//IInfoViewer?
+		private	IInfoView	m_speedView;
 
 		public int Speed { get; private set; } = Сonstants.m_minimalSpeed;
 

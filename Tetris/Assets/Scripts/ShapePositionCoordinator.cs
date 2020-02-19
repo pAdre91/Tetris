@@ -5,14 +5,14 @@ namespace Tetris
 {
 	public class ShapePositionCoordinator : IShapePositionCoordinator
 	{
-		public	IShape CurrentShape { set; get; }            //Может убрать, а  метода просто передавать конкретную фигуру?
+		public	IShape CurrentShape { set; get; }
 
 		private	float	previousVerticalTime	=	0f;
 		private	float	previousHorizontalTime	=	0f;
 
 		public void HorizontalMoveShape(Vector3 direction)
 		{
-			if (Time.time - previousHorizontalTime < Сonstants.m_timeHorizontMove)     //Магические числа! //Коэффициент увеличения скорости
+			if (Time.time - previousHorizontalTime < Сonstants.m_timeHorizontMove)
 				return;
 
 			previousHorizontalTime = Time.time;
@@ -34,7 +34,7 @@ namespace Tetris
 
 		public bool IsShapeCanFallByTime(float fallTime)
 		{
-			if (Time.time - previousVerticalTime < fallTime)         //Магические числа!
+			if (Time.time - previousVerticalTime < fallTime)
 				return false;
 			return true;
 		}

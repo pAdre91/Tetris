@@ -29,7 +29,7 @@ namespace Tetris
 			m_isNewShape = false;
 		}
 
-		public void Rotate(int angle)			//точно ли нужен угол?
+		public void Rotate(int angle)
 		{
 			transform.RotateAround(transform.TransformPoint(m_rotationPoint), new Vector3(0, 0, 1), angle);
 		}
