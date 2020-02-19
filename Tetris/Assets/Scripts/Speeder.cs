@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Сonstant;
 
 namespace Tetris
 {
@@ -6,7 +7,7 @@ namespace Tetris
 	{
 		private	ISpeedView	m_speedView;			//IInfoViewer?
 
-		public int Speed { get; private set; } = 1;
+		public int Speed { get; private set; } = Сonstants.m_minimalSpeed;
 
 		public Speeder()
 		{
@@ -21,7 +22,7 @@ namespace Tetris
 
 		public void DecrementSpeed()
 		{
-			if (Speed == 1)
+			if (Speed == Сonstants.m_minimalSpeed)
 				return;
 
 			Speed--;

@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Сonstant;
 
 namespace Tetris        //Grid?
 {
 	public class GridManager : IGridManager
 	{
-		private float m_scale = 0.4f;             //Тут ли его хранить? //Убрать хардкод!
-
 		IGridModel		m_gridModel;
 		ILineChecker	m_lineChecker;
 		ILineScorer		m_lineScorer;
 
 		public GridManager()
 		{
-			m_gridModel		=	new	GridModel	(10, 20);         //Убрать хардкод!
+			m_gridModel		=	new	GridModel	(Сonstants.m_widthPointField, Сonstants.m_heightPointField);
 			m_lineChecker	=	new	LineChecker	();
 			m_lineScorer	=	new	LineScorer	(); 
 		}
@@ -81,7 +80,7 @@ namespace Tetris        //Grid?
 				for (byte rowColumn = 0; rowColumn < gridWidth; rowColumn++)
 				{
 					if (!m_gridModel.IsAreaFree(rowColumn, rowLine))
-						m_gridModel.ReplaceAreaFromGrid(rowColumn, rowLine, rowColumn, rowLine - 1, Vector3.down * m_scale);
+						m_gridModel.ReplaceAreaFromGrid(rowColumn, rowLine, rowColumn, rowLine - 1, Vector3.down * Сonstants.m_scale);
 				}
 			}
 		}
@@ -89,8 +88,8 @@ namespace Tetris        //Grid?
 		/*Перевод глобавльной координаты в координату сетки*/
 		private void TranslateCoordinateToGridNumbers(Vector3 pos, out byte x, out byte y, Vector3 direction)
 		{
-			float childrenPositionX = (pos.x + (direction.x * m_scale)) / m_scale;
-			float childrenPositionY = (pos.y + (direction.y * m_scale)) / m_scale;
+			float childrenPositionX = (pos.x + (direction.x * Сonstants.m_scale)) / Сonstants.m_scale;
+			float childrenPositionY = (pos.y + (direction.y * Сonstants.m_scale)) / Сonstants.m_scale;
 
 			x = (byte)Math.Floor(childrenPositionX);
 			y = (byte)Math.Floor(childrenPositionY);

@@ -1,4 +1,5 @@
 ﻿using Tetris;
+using Сonstant;
 
 enum PointsForFiledLines
 {
@@ -12,7 +13,7 @@ public class Switcher : ISwitcher
 {
 	private	ISpeeder	m_speeder;
 	private	IScorer		m_scorer;
-	private	int			m_oldStageScore = 100;
+	private	int			m_oldStageScore = Сonstants.m_scoreToFirstStage;
 
 	public Switcher()
 	{
