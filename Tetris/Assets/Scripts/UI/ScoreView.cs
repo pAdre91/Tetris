@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class ScoreView : MonoBehaviour, IScoreView
 {
-	private TextMesh m_meshScore;
-	private const string m_scoreTextTemplate = "Score:\n";
+	private	TextMesh		m_meshScore;
+	private	const string	m_scoreTextTemplate	=	"Score:\n";
 
 
 	private void Start()

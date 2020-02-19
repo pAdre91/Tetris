@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 namespace GameControl
-{
+{		/*Все ли используется?*/
 	class InputManager : IInputManager
 	{
 		public float GetVerticalMove()

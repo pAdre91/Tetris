@@ -1,26 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Tetris;
+﻿using Tetris;
 
 enum PointsForFiledLines
 {
-	OneLine = 10,
-	TwoLines = 30,
-	ThreeLines = 60,
-	FourLines = 100
+	OneLine		=	10,
+	TwoLines	=	30,
+	ThreeLines	=	60,
+	FourLines	=	100
 }
 
 public class Switcher : ISwitcher
 {
-	private ISpeeder m_speeder;
-	private IScorer m_scorer;
-	private int m_oldStageScore = 100;
+	private	ISpeeder	m_speeder;
+	private	IScorer		m_scorer;
+	private	int			m_oldStageScore = 100;
 
 	public Switcher()
 	{
-		m_scorer = new Scorer();
-		m_speeder = new Speeder();
+		m_scorer	=	new	Scorer	();
+		m_speeder	=	new	Speeder	();
 	}
 
 	public void EarnPoints(int filledLineCount)

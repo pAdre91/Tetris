@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ShapePositionCoordinator : IShapePositionCoordinator
 {
 	public IShape CurrentShape { set; get; }            //Может убрать, а  метода просто передавать конкретную фигуру?
 
-	private float previousVerticalTime = 0f;
-	private float previousHorizontalTime = 0f;
+	private	float	previousVerticalTime	=	0f;
+	private	float	previousHorizontalTime	=	0f;
 
 	public void HorizontalMoveShape(Vector3 direction, float fallTime)
 	{

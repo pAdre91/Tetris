@@ -5,7 +5,7 @@ namespace Tetris
 	class GameOverView : MonoBehaviour, IGameOverView
 	{
 		[SerializeField]
-		GameObject m_gameOverPanel;
+		GameObject	m_gameOverPanel;
 
 		public void ActivaleGameOverPanel()
 		{

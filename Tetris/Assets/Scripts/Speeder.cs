@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Tetris
 {
 	class Speeder : ISpeeder
 	{
-		private ISpeedView m_speedView;			//IInfoViewer?
+		private	ISpeedView	m_speedView;			//IInfoViewer?
 
 		public int Speed { get; private set; } = 1;
 

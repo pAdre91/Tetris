@@ -4,13 +4,13 @@ namespace Tetris
 {
 	class GridModel : IGridModel
 	{
-		public Transform[,] PlayFieldGrid { get; private set; }
+		public	Transform[,]	PlayFieldGrid	{ get; private set; }
 
-		private byte m_width;
-		private byte m_height;
-		private IDestroyer m_destroyer;
+		private	byte		m_width;
+		private	byte		m_height;
+		private	IDestroyer	m_destroyer;
 
-		private GridModel() { }			//Может есть другой способ?
+		private	GridModel() { }			//Может есть другой способ?
 		public	GridModel(byte width, byte height)
 		{
 			PlayFieldGrid = new Transform[width, height];

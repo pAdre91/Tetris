@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpeedView : MonoBehaviour, ISpeedView
 {
-	private TextMesh m_meshSpeed;
-	private const string m_speedTextTemplate = "Speed:\n";
+	private	TextMesh		m_meshSpeed;
+	private	const string	m_speedTextTemplate	=	"Speed:\n";
 
 
 	private void Start()

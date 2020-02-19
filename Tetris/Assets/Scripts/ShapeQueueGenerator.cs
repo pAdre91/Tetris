@@ -5,8 +5,8 @@ namespace Tetris
 {
 	class ShapeQueueGenerator : IShapeQueueGenerator
 	{
-		private const int			m_queueСapacity = 2;
-		private Queue<GameObject>	m_shapesQueue = new Queue<GameObject>();
+		private const int			m_queueСapacity	=	2;
+		private Queue<GameObject>	m_shapesQueue	=	new Queue<GameObject>();
 		private GameObject[]		m_shapePrefabs;
 
 		public ShapeQueueGenerator()

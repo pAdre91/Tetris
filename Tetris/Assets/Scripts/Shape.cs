@@ -5,8 +5,8 @@ namespace Tetris
 	class Shape : MonoBehaviour, IShape
 	{
 		[SerializeField]
-		private Vector3 m_rotationPoint;
-		private bool m_isNewShape = true;
+		private	Vector3	m_rotationPoint;
+		private	bool	m_isNewShape	=	true;
 
 		public Vector3 RotationPoint
 		{

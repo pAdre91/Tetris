@@ -6,15 +6,15 @@ using GameControl;
 
 public class GameController : MonoBehaviour
 {
-	private IInputManager m_inputManager;
-	private ILevelStater m_levelStater;
-	private ITetrisController m_tetrisController;
+	private	IInputManager		m_inputManager;
+	private	ILevelStater		m_levelStater;
+	private	ITetrisController	m_tetrisController;
 
 	private void Start()
 	{
-		m_tetrisController = new TetrisController();
-		m_inputManager = new InputManager();
-		m_levelStater = new LevelStater();
+		m_tetrisController	=	new	TetrisController	();
+		m_inputManager		=	new	InputManager		();
+		m_levelStater		=	new	LevelStater			();
 
 		m_tetrisController.SpawnNewShape();
 		StartCoroutine(FallShape());

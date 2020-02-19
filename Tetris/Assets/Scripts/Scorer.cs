@@ -4,7 +4,7 @@ namespace Tetris
 {
 	class Scorer : IScorer
 	{
-		private IScoreView m_scoreView;
+		private	IScoreView	m_scoreView;
 
 		public int Score { get; private set; } = 0;
 
